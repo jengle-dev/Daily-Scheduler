@@ -4,8 +4,13 @@
 
 var currentDate = document.getElementById('currentDay');
 
+var reformatDate = dayjs('2020-11-03').format('dddd, MMMM D YYYY, h:mm:ss a');
+$('#3a').text(reformatDate);
 
-$(function currentDate() {
+var today = dayjs();
+$('#1a').text(today.format('MMM D, YYYY'));
+
+$(function () {
 
    // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -14,9 +19,7 @@ $(function currentDate() {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  var today = dayjs();
 
-  $('#1a').text(today.format('MMM D, YYYY'));
 
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
