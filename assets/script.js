@@ -1,16 +1,25 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+dayjs().hour() // gets current hour
+newHour = dayjs().hour(12);
+dayjs().date()
+currentDateEl = dayjs().date();
+var containerEl = $('.container');
+// var currentHourEl = moment().hour();
+// moment().format("MMM Do YY")
+var todayEl dayjs().toDate();
 
-var currentDate = document.getElementById('currentDay');
+var currentWorkHour = [
+  dayjs().format('dddd, MMMM D, YYYY'
+  )
+];
 
-var reformatDate = dayjs('2020-11-03').format('dddd, MMMM D YYYY, h:mm:ss a');
-$('#3a').text(reformatDate);
+var timeBlock = $('col-1 hour');
+var userInput = $('.textInput');
 
-var today = dayjs();
-$('#1a').text(today.format('MMM D, YYYY'));
-
-$(function () {
+var reformatDate = thisInstance().format('MMMM D YYYY');
+$('#currentDay').text(reformatDate);
 
    // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -39,13 +48,12 @@ $(function () {
       // UPDATE CLASS - to "present"
     // IF "future"
       // UPDATE CLASS - to "future"
+
   // SAVE to LOCAL STORAGE
-  nextButtonEl.classList.add('hide')
 
   
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // TODO: Add code to display the current date in the header of the page.
-});
+
