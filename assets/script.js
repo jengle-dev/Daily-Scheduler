@@ -59,15 +59,20 @@ $(function () {
       if (task) {
         $('#' + (i + 9)).siblings().first().children().text(task);
       }
-  }
+    }
 
+    compareTimeBlock(currentTimeHour);
 
-  //save to local storage upon click
-  function saveDescription(hour, task) {
-    localStorage.setItem(hour,task);
-  }
-
-  for (var i = 0; i < workDayHours.length; i++) {
-   var userInput = $('<p>').text(' ').attr({id:'hour-' + (i+9)});
-
-  });
+    //save to local storage upon click
+    function saveTask(hour, task) {
+      localStorage.setItem(hour, task);
+    }
+      $(".saveBtn").on("click", function () {
+        userInput = $(this).siblings(".description").val().trim();
+        console.log(userInput);
+        hourSpan = $(this).siblings(".hour").text().trim();
+        console.log(hourSpan);
+        localStorage.setItem(hourSpan, JSON.stringify(userInput));
+      })
+    }
+  })
