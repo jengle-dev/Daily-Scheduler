@@ -1,5 +1,5 @@
 # Daily Work Day Scheduler
-# Jennifer Engle Module 5- Challenge
+## Jennifer Engle Module 5- Challenge
 
 ## Description
 The goal of this project is to create a simple calendar application that allows a user to save events/tasks for each hour of the day. 
