@@ -2,21 +2,7 @@
 
 // Global variables
 var today = dayjs();
-var currentHour = dayjs().hour(12);
-// Array that lists all of the working hours for this current work day
-var workDayHours = [
-  dayjs().hour(9).format('hA'),
-  dayjs().hour(10).format('hA'),
-  dayjs().hour(11).format('hA'),
-  dayjs().hour(12).format('hA'),
-  dayjs().hour(13).format('hA'),
-  dayjs().hour(14).format('hA'),
-  dayjs().hour(15).format('hA'),
-  dayjs().hour(16).format('hA'),
-  dayjs().hour(17).format('hA')
-];
-//target the div with the hour
-var timeBlockHour = $('col-md-1 hour')
+var currentHour = dayjs().hour();
 //target the div with task info
 var task = $('.description')
 // end Global Variables
@@ -33,24 +19,24 @@ $(function () {
   //parse current hour & compare
   console.log(currentHour);
 
-  function compareTimeBlock(reviewTimeBlock) {
-    var currentTimeHour = dayjs($(timeBlockHour).text().trim(), 'hA').hour();
+  $(".hour").each(compareTimeBlock);
 
+  function compareTimeBlock(index, reviewTimeBlock) {
     // remove any preset class of past/present/future
     $(reviewTimeBlock).removeClass('past present future');
 
-    if (currentTimeBlock > currentHour) {
-      $(reviewTimeBlock).addClass('future');
+    if (parseInt($(this).attr('id') > currentHour)) {
+      $(this).addClass('future');
     }
-    else if (currentTimeBlock === currentHour) {
-      $(reviewTimeBlock).addClass('present');
+    else if (parseInt($(this).attr('id') === currentHour)) {
+      $(this).addClass('present');
     }
     else {
-      $(reviewTimeBlock).addClass('past');
+      $(this).addClass('past');
     }
   }
 
-  function textDescription() {
+    function textDescription() {
     // Loop index of array of workDayHours
     for (var i = 0; i < workDayHours.length; i++) {
       let task = localStorage.getItem(workDayHours[i]);
@@ -61,7 +47,6 @@ $(function () {
       }
     }
 
-    compareTimeBlock(currentTimeHour);
 
     //save to local storage upon click
     function saveTask(hour, task) {
